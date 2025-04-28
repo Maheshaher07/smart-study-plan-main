@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Study Planner</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script defer src="script.js"></script>
+</head>
+<body>
+
+    <!-- 🔹 Navigation Bar -->
+    <nav>
+        <h2>📚 Study Planner</h2>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">Planner</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+    </nav>
+
+    <!-- 🔹 Main Container -->
+    <div class="container">
+        <h1>📚 Smart Study Planner</h1>
+
+        <!-- 🔹 Task Input Section -->
+        <div class="controls">
+            <input type="text" id="subject" placeholder="Enter Subject">
+            <input type="text" id="description" placeholder="Enter Description">
+            <select id="day">
+                <option value="Monday">Monday</option>
+                <option value="Tuesday">Tuesday</option>
+                <option value="Wednesday">Wednesday</option>
+                <option value="Thursday">Thursday</option>
+                <option value="Friday">Friday</option>
+                <option value="Saturday">Saturday</option>
+                <option value="Sunday">Sunday</option>
+            </select>
+            <select id="priority">
+                <option value="high">🔥 High</option>
+                <option value="medium">⚡ Medium</option>
+                <option value="low">📌 Low</option>
+            </select>
+            <button onclick="addTask()">➕ Add Task</button>
+            <button onclick="exportToPDF()">📄 Export PDF</button>
+        </div>
+
+        <!-- 🔹 Weekly Planner -->
+        <div class="week">
+            <div class="day" data-day="Monday">
+                <h3>Monday</h3>
+                <button class="view-tasks-btn">📋 View Tasks</button>
+            </div>
+            <div class="day" data-day="Tuesday">
+                <h3>Tuesday</h3>
+                <button class="view-tasks-btn">📋 View Tasks</button>
+            </div>
+            <div class="day" data-day="Wednesday">
+                <h3>Wednesday</h3>
+                <button class="view-tasks-btn">📋 View Tasks</button>
+            </div>
+            <div class="day" data-day="Thursday">
+                <h3>Thursday</h3>
+                <button class="view-tasks-btn">📋 View Tasks</button>
+            </div>
+            <div class="day" data-day="Friday">
+                <h3>Friday</h3>
+                <button class="view-tasks-btn">📋 View Tasks</button>
+            </div>
+            <div class="day" data-day="Saturday">
+                <h3>Saturday</h3>
+                <button class="view-tasks-btn">📋 View Tasks</button>
+            </div>
+            <div class="day" data-day="Sunday">
+                <h3>Sunday</h3>
+                <button class="view-tasks-btn">📋 View Tasks</button>
+            </div>
+        </div>        
+    </div>
+
+    <!-- 🔹 View Task Modal (Hidden by Default) -->
+    <div id="viewTaskModal" class="modal">
+        <div class="modal-content">
+            <h2 id="viewModalTitle">📋 Tasks for <span id="modalDayName"></span></h2>
+            <ul id="taskList"></ul>
+            <button onclick="closeTaskModal()">❌ Close</button>
+        </div>
+    </div>    
+
+    <!-- 🔹 Task Details Modal -->
+    <div id="taskModal" class="modal">
+        <div class="modal-content">
+            <h2 id="modalTaskTitle">Task Title</h2>
+            <p id="modalTaskDescription">Task Description</p>
+            <div class="modal-buttons">
+                <button id="editTask">✏️ Edit</button>
+                <button id="deleteTask">🗑️ Delete</button>
+                <button id="closeModal" onclick="closeModal()">❌ Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let buttons = document.querySelectorAll(".view-tasks-btn");
+            buttons.forEach(btn => {
+                btn.addEventListener("click", function () {
+                    let day = this.parentElement.getAttribute("data-day");
+                    viewTasks(day);
+                });
+            });
+
+            // Ensure modals are hidden on page load
+            document.getElementById("viewTaskModal").style.display = "none";
+            document.getElementById("taskModal").style.display = "none";
+        });
+        
+    </script>
+
+</body>
+</html>

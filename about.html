@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Study Planner</title>
+    <style>
+        /* Reset & Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+    background: url('bg.png') no-repeat center center/cover;
+    color: #333;
+    line-height: 1.6;
+    background-attachment: fixed; /* Keeps the background fixed while scrolling */
+    background-size: cover;
+    background-position: center;
+}
+
+        /* 🔹 Navigation Bar */
+        nav {
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: #007bff;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        nav h2 {
+            color: white;
+            font-size: 24px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 8px 12px;
+            border-radius: 5px;
+            transition: background 0.3s ease-in-out;
+        }
+
+        nav ul li a:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        /* 🔹 Hero Section */
+        .hero {
+            width: 100%;
+            height: 70vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                        url('https://source.unsplash.com/1600x900/?education,study') no-repeat center center/cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: bold;
+        }
+
+        /* 🔹 About Section */
+        .about-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 1200px;
+            margin: auto;
+            padding: 50px 20px;
+            gap: 40px;
+            animation: slideIn 1.5s ease-in-out;
+        }
+
+        .about-text {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .about-text h2 {
+            font-size: 36px;
+            color: #007bff;
+            margin-bottom: 15px;
+        }
+
+        .about-text p {
+            font-size: 18px;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .about-image {
+            flex: 1;
+            text-align: center;
+        }
+
+        .about-image img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 10px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .about-image img:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* 🔹 Footer */
+        .footer {
+            text-align: center;
+            padding: 15px;
+            background: #007bff;
+            color: white;
+            font-size: 16px;
+            margin-top: 50px;
+        }
+
+        /* 🔹 Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        /* 🔹 Responsive Design */
+        @media (max-width: 768px) {
+            .about-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .about-image img {
+                max-width: 100%;
+            }
+
+            nav {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav ul {
+                padding-top: 10px;
+                flex-direction: column;
+            }
+
+            nav ul li {
+                margin: 5px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 🔹 Navigation Bar -->
+    <nav>
+        <h2>📚 Study Planner</h2>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="planner.html">Planner</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+    </nav>
+
+    <!-- 🔹 Hero Section -->
+    <header class="hero">
+        <h1>About Us</h1>
+    </header>
+
+    <!-- 🔹 About Us Section -->
+    <section class="about-container">
+        <div class="about-text">
+            <h2>Who We Are</h2>
+            <p>
+                Welcome to the Study Planner! Our mission is to help students organize their study schedules efficiently. 
+                We provide a smart, intuitive, and user-friendly platform to manage your study plans, track progress, 
+                and stay motivated. Our goal is to enhance your learning experience and make studying more productive.
+            </p>
+        </div>
+        <div class="about-image">
+            <img src="w.png" alt="About Us">
+        </div>
+    </section>
+
+    <!-- 🔹 Footer -->
+    <footer class="footer">
+        &copy; 2025 Study Planner. All Rights Reserved.
+    </footer>
+
+</body>
+</html>
